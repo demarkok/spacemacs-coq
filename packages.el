@@ -14,7 +14,10 @@
 (setq coq-packages
     '(
       company-coq
-      (proof-general :location local)
+      (proof-general :location (recipe
+                                :fetcher github
+                                :repo "ProofGeneral/PG"
+                                :files ("*")))
       ))
 
 ;; List of packages to exclude.
@@ -48,8 +51,28 @@
             (kbd "M-k") 'proof-undo-last-successful-command
             (kbd "M-j") 'proof-assert-next-command-interactive
             )
-          )
 
+          (eval-after-load "proof-script"
+            '(progn
+               (define-key proof-mode-map [(control j)]
+                 'proof-assert-next-command-interactive)
+               (define-key proof-mode-map [(control k)]
+                 'proof-undo-last-successful-command)
+               (define-key proof-mode-map [(mouse-8)]
+                 'proof-assert-next-command-interactive)
+               (define-key proof-mode-map [(mouse-9)]
+                 'proof-undo-last-successful-command)
+               (define-key proof-mode-map [(control mouse-5)]
+                 'proof-assert-next-command-interactive)
+               (define-key proof-mode-map [(control mouse-4)]
+                 'proof-undo-last-successful-command)
+               (define-key proof-mode-map [(control K)]
+                 'proof-undo-and-delete-last-successful-command)
+               (define-key proof-mode-map [f3] 'company-coq-doc)
+               (define-key proof-mode-map [f3] 'coq-Search)
+               (define-key proof-mode-map [f2]
+                 'company-coq-toggle-definition-overlay)))
+          )
 
 (defun coq/init-proof-general ()
   "Initialize Proof General."
@@ -82,3 +105,6 @@
    '(proof-warning-face ((t (:background "indianred3"))))
    )
   )
+
+;; To turn undo-tree-mode on automatically. For some reason, global-undo-tree-mode doesn't work with PG.
+(add-hook 'coq-mode-hook (lambda () (undo-tree-mode 1)))

@@ -1,24 +1,34 @@
 
 * Description
+
 This layer adds support for the [[https://proofgeneral.github.io/][Proof General]] interface to the [[https://coq.inria.fr/][Coq Proof Assistant]].
+Inspired by https://github.com/anton-trunov/spacemacs-coq.
 
 ** Features
 - Loads the [[https://github.com/cpitclaudel/company-coq][company-coq]] extension
 
 * Install
-** Layer
-To use this configuration layer,
-clone this repository into =~/emacs.d/private/=.
-You will need to add =coq= as one of the
-=dotspacemacs-configuration-layers=
-in your =~/.spacemacs= file.
 
-** Dependencies
-- Coq (of course)
-- Proof general
+To install, run
+```
+git clone https://github.com/demarkok/spacemacs-coq ~/.emacs.d/private/coq
+```
+and add `coq` to your `dotspacemacs-configuration-layers` list.
 
 * Keybindings
 
+** Additional Shortcuts
+
+| Key       | Description          |
+|-----------+----------------------|
+| ~C-c RET~ | go to this point     |
+| ~C-j~     | go to next point     |
+| ~C-k~     | go to previous point |
+| ~f2~      | definition at point  |
+| ~f3~      | search at point      |
+| ~f4~      | help at point        |
+
+** Standard coq-layer shortcuts
 
 | Key                                          | Description            |
 |----------------------------------------------+------------------------|
