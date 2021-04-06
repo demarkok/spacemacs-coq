@@ -2,6 +2,7 @@
 * Description
 
 This layer adds support for the [[https://proofgeneral.github.io/][Proof General]] interface to the [[https://coq.inria.fr/][Coq Proof Assistant]].
+
 Inspired by https://github.com/anton-trunov/spacemacs-coq.
 
 ** Features
@@ -10,10 +11,9 @@ Inspired by https://github.com/anton-trunov/spacemacs-coq.
 * Install
 
 To install, run
-```
-git clone https://github.com/demarkok/spacemacs-coq ~/.emacs.d/private/coq
-```
-and add `coq` to your `dotspacemacs-configuration-layers` list.
+=git clone https://github.com/demarkok/spacemacs-coq ~/.emacs.d/private/coq=
+
+and add =`coq`= to your =`dotspacemacs-configuration-layers`= list.
 
 * Keybindings
 
