@@ -12,3 +12,7 @@
 (defvar proof-general-path "~/.emacs.d/lisp/PG/generic/proof-site"
   "The path to proof general")
 
+(spacemacs|define-jump-handlers coq-mode)
+
+(defvar coq-enable-eldoc nil
+  "If non nil then eldoc-mode is enabled in the Coq layer.")

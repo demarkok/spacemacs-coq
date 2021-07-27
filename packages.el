@@ -68,9 +68,9 @@
                  'proof-undo-last-successful-command)
                (define-key proof-mode-map [(control K)]
                  'proof-undo-and-delete-last-successful-command)
-               (define-key proof-mode-map [f3] 'company-coq-doc)
-               (define-key proof-mode-map [f3] 'coq-Search)
-               (define-key proof-mode-map [f2]
+               (define-key company-coq-map [f4] 'company-coq-doc)
+               (define-key company-coq-map [f3] 'coq-Search)
+               (define-key company-coq-map [f2]
                  'company-coq-toggle-definition-overlay)))
           )
 
@@ -93,7 +93,6 @@
     "o" 'company-coq-occur
     (or dotspacemacs-major-mode-leader-key ",") 'proof-goto-point
     )
-  (setup-coq-keys)
     ;;; Hybrid mode by default
   (setq-default proof-three-window-mode-policy 'hybrid)
   ;; no splash screen
@@ -108,3 +107,6 @@
 
 ;; To turn undo-tree-mode on automatically. For some reason, global-undo-tree-mode doesn't work with PG.
 (add-hook 'coq-mode-hook (lambda () (undo-tree-mode 1)))
+
+(add-hook 'company-coq-mode-hook 'setup-coq-keys)
+
